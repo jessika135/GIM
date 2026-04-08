@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Manager Pro - Login</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <div class="main-container">
+        <img src="img/logo.jpg" alt="Logo Gym Manager Pro" class="logo-principal">
+        
+        <div class="login-card">
+            <h1>GYM MANAGER PRO</h1>
+            <p class="tagline">Sistema de Gestión de Gimnasio</p>
+
+            <form id="loginForm" action="ClienteServlet" method="POST">
+                
+                <div class="input-group">
+                    <input type="text" id="usuario" name="usuario" placeholder="Usuario o Correo electrónico" required>
+                </div>
+                
+                <div class="input-group">
+                    <input type="password" id="password" name="password" placeholder="Contraseña" required>
+                </div>
+
+                <button type="submit" class="btn-login">Iniciar sesión</button>
+                
+                <button type="button" class="btn-register" onclick="window.location.href='registro.jsp'">Registro de usuario</button>
+            </form>
+
+            <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a>
+
+            <div class="checkbox-container">
+                <input type="checkbox" id="acepto">
+                <label for="acepto">Acepto los términos y condiciones</label>
+            </div>
+        </div>
+
+        <footer class="legal-footer">
+            <p>Al iniciar sesión aceptas nuestros <a href="#">términos y condiciones</a> y autorizas la <a href="#">política de privacidad y tratamiento de datos</a>.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
