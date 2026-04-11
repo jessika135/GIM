@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro - GymManagerPro</title>
+    <style>
+        body { margin:0; font-family:'Segoe UI',sans-serif;
+        background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
+        url('/img/gim.jpg') no-repeat center center fixed;
+        background-size:cover; display:flex;
+        justify-content:center; align-items:center; height:100vh; }
+        .card { background:white; padding:40px; border-radius:20px;
+        max-width:500px; width:90%;
+        box-shadow:0 10px 30px rgba(0,0,0,0.5); }
+        h2 { color:#002366; text-align:center; }
+        label { font-weight:bold; color:#333; }
+        input, select { width:100%; padding:10px; margin:8px 0;
+        border:1px solid #ddd; border-radius:8px; box-sizing:border-box; }
+        .btn-guardar { background:#002366; color:white; padding:12px;
+        width:100%; border:none; border-radius:8px;
+        font-size:16px; cursor:pointer; }
+        .btn-volver { display:block; text-align:center; margin-top:10px;
+        color:#002366; text-decoration:none; font-weight:bold; }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h2>🏋️ Registro de Cliente</h2>
+    <form action="/clientes/guardar" method="POST" th:object="${cliente}">
+        <label>Nombre</label>
+        <input type="text" th:field="*{nombre}" placeholder="Ingresa tu nombre" required>
+        <label>Apellido</label>
+        <input type="text" th:field="*{apellido}" placeholder="Ingresa tu apellido" required>
+        <label>Cédula</label>
+        <input type="text" th:field="*{cedula}" placeholder="Número de documento" required>
+        <label>Teléfono</label>
+        <input type="text" th:field="*{telefono}" placeholder="Número de teléfono" required>
+        <label>Email</label>
+        <input type="email" th:field="*{email}" placeholder="Correo electrónico" required>
+        <label>Plan de Membresía</label>
+        <select th:field="*{tipoMembresia}">
+            <option value="">Selecciona un plan</option>
+            <option value="Mensual">Mensual</option>
+            <option value="Trimestral">Trimestral</option>
+            <option value="Anual">Anual</option>
+        </select>
+        <button type="submit" class="btn-guardar">✅ Guardar Cliente</button>
+    </form>
+    <a href="/clientes" class="btn-volver">← Volver a la lista</a>
+</div>
+</body>
+</html>
