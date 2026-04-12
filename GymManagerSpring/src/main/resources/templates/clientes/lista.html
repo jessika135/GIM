@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>GymManagerPro - Clientes</title>
+    <style>
+        body { margin:0; font-family:'Segoe UI',sans-serif;
+        background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
+        url('/img/gim.jpg') no-repeat center center fixed;
+        background-size:cover; padding:20px; }
+        .container { background:white; padding:30px; border-radius:15px;
+        max-width:900px; margin:0 auto; }
+        h1 { color:#002366; }
+        table { width:100%; border-collapse:collapse; margin-top:20px; }
+        th { background:#002366; color:white; padding:12px; }
+        td { padding:10px; border-bottom:1px solid #ddd; text-align:center; }
+        tr:hover { background:#f5f5f5; }
+        .btn { display:inline-block; padding:10px 20px; border-radius:8px;
+        text-decoration:none; font-weight:bold; margin:5px; }
+        .btn-nuevo { background:#ff8c00; color:white; }
+        .btn-eliminar { background:#dc3545; color:white; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🏋️ GymManagerPro - Lista de Clientes</h1>
+    <a href="/clientes/nuevo" class="btn btn-nuevo">➕ Nuevo Cliente</a>
+    <table>
+        <tr>
+            <th>ID</th><th>Nombre</th><th>Apellido</th>
+            <th>Cédula</th><th>Teléfono</th><th>Email</th>
+            <th>Plan</th><th>Estado</th><th>Acciones</th>
+        </tr>
+        <tr th:each="cliente : ${clientes}">
+            <td th:text="${cliente.id}"></td>
+            <td th:text="${cliente.nombre}"></td>
+            <td th:text="${cliente.apellido}"></td>
+            <td th:text="${cliente.cedula}"></td>
+            <td th:text="${cliente.telefono}"></td>
+            <td th:text="${cliente.email}"></td>
+            <td th:text="${cliente.tipoMembresia}"></td>
+            <td th:text="${cliente.estado}"></td>
+            <td>
+                <a th:href="@{/clientes/eliminar/{id}(id=${cliente.id})}"
+                   class="btn btn-eliminar">🗑️ Eliminar</a>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
